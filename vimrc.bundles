@@ -1,0 +1,58 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Define bundles via Github repos
+
+" Utility
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/ctags.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'valloric/youcompleteme'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'terryma/vim-smooth-scroll'
+"Plugin 'terryma/vim-multiple-cursors'
+
+" Generic Programming Support
+Plugin 'jakedouglas/exuberant-ctags'
+Plugin 'honza/vim-snippets'
+Plugin 'Townk/vim-autoclose'
+Plugin 'vim-syntastic/syntastic'
+
+" git Support
+Plugin 'kablamo/vim-git-log'
+Plugin 'gregsexton/gitv'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" python support
+"Plugin 'lambdalisue/vim-pyenv'
+
+" golang support
+Plugin 'fatih/vim-go'
+
+" yaml support
+Plugin 'avakhov/vim-yaml'
+
+" Theme / Interface
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()
+filetype on
