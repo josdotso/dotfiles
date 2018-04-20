@@ -2,7 +2,7 @@
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH=$HOME/.local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
-export DEFAULT_USER='rluckie'
+export DEFAULT_USER="$USER"
 
 ZSH_THEME="agnoster"
 
@@ -25,11 +25,6 @@ plugins=(
     helm
 )
 
-# if [[ -r $HOME/.dotfiles/tools/powerline/powerline/bindings/zsh/powerline.zsh ]]; then
-#     source $HOME/.dotfiles/tools/powerline/powerline/bindings/zsh/powerline.zsh
-# else
-#     echo "no powerline.zsh found"
-# fi
 source $ZSH/oh-my-zsh.sh
 
 # history settings
@@ -65,11 +60,9 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 ##############################
 # GO
 ##############################
-# export GOROOT=/usr/local/Cellar/go/1.8.3/libexec
-# export PATH=$PATH:$GOROOT/bin
-# export PATH=$PATH:/usr/local/opt/go/libexec/bin
-# export GOPATH=$HOME/.go
-# export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 stty erase '^?'
 
@@ -84,7 +77,7 @@ eval "$(direnv hook zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 
-source <(kops completion zsh)
+source <(kops-1.9.0 completion zsh)
 
 # # aliases
 if [[ -f ~/.aliases ]]; then source ~/.aliases; fi
