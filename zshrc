@@ -9,7 +9,6 @@ ZSH_THEME="agnoster"
 plugins=(
     git
     gitignore
-    brew
     tmux
     compleat
     docker

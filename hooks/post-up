@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
 
 touch $HOME/.psqlrc.local
 
@@ -6,3 +7,10 @@ if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 vim -u $HOME/.vimrc.bundles +PluginInstall +PluginClean! +qa
+
+if [ ! -e $HOME/.pyenv ]; then
+  git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+  git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+  git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
+  git clone https://github.com/pyenv/pyenv-which-ext.git $HOME/.pyenv/plugins/pyenv-which-ext
+fi
