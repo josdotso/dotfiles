@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# psql
 touch $HOME/.psqlrc.local
 
+# vim
 if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 vim -u $HOME/.vimrc.bundles +PluginInstall +PluginClean! +qa
 
+# pyenv
 if [ ! -e $HOME/.pyenv ]; then
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
   git clone https://github.com/pyenv/pyenv-which-ext.git $HOME/.pyenv/plugins/pyenv-which-ext
 fi
+
+# fonts
+if [[ ! -d $HOME/.config/fontconfig/conf.d ]]; then
+  mkdir -p $HOME/.config/fontconfig/conf.d
+fi
+if [[ ! -f $HOME/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf ]]; then
+    curl -o $HOME/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf https://raw.githubusercontent.com/powerline/fonts/master/fontconfig/50-enable-terminess-powerline.conf
+fi
+cd $HOME/.dotfiles/powerline-fonts && ./install.sh
+fc-cache -vf
