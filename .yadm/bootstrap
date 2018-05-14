@@ -5,13 +5,18 @@ set -euo pipefail
 touch $HOME/.psqlrc.local
 
 # vim
-if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
+if [[ ! -e $HOME/.vim/bundle/Vundle.vim ]]; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 vim -u $HOME/.vimrc.bundles +PluginInstall +PluginClean! +qa
 
+# oh-my-zsh
+if [[ ! -e $HOME/.oh-my-zsh ]]; then
+  git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+fi
+
 # pyenv
-if [ ! -e $HOME/.pyenv ]; then
+if [[ ! -e $HOME/.pyenv ]]; then
   git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
   git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
   git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
