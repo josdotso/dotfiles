@@ -24,7 +24,7 @@ Plugin 'terryma/vim-smooth-scroll'
 "Plugin 'terryma/vim-multiple-cursors'
 
 " Generic Programming Support
-Plugin 'jakedouglas/exuberant-ctags'
+" Plugin 'jakedouglas/exuberant-ctags'
 Plugin 'honza/vim-snippets'
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-syntastic/syntastic'
