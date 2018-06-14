@@ -12,16 +12,12 @@ export GOPATH="${HOME}/.go"
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="${GOPATH}/bin:${PATH}"
 
-# powerline-go
-command -v powerline-go || go get -u github.com/justjanne/powerline-go
-if $(command -v powerline-go); then
-  function _update_ps1() {
-    PS1="$(powerline-go -error ${?})"
-  }
-  if [ "${TERM}" != "linux" ]; then
-    PROMPT_COMMAND="_update_ps1; ${PROMPT_COMMAND}"
+# pureline
+if [ -d ~/.pureline ]; then
+  if [ "$TERM" != "linux" ]; then
+    source ~/.pureline/pureline ~/.pureline.conf
   fi
-fi 
+fi
 
 # vim
 export EDITOR=vim
